@@ -14,6 +14,7 @@
 		653442D927C5F0CB00EFCAE6 /* CPSC_411_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442D827C5F0CB00EFCAE6 /* CPSC_411_ProjectTests.swift */; };
 		653442E327C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E227C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift */; };
 		653442E527C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */; };
+		653442F227C5F13800EFCAE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 653442F127C5F13800EFCAE6 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		653442DE27C5F0CB00EFCAE6 /* CPSC-411 ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPSC-411 ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		653442E227C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITests.swift; sourceTree = "<group>"; };
 		653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		653442F127C5F13800EFCAE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				653442C927C5F0C900EFCAE6 /* ContentView.swift */,
 				653442CB27C5F0CB00EFCAE6 /* Assets.xcassets */,
 				653442CD27C5F0CB00EFCAE6 /* Preview Content */,
+				653442F127C5F13800EFCAE6 /* .gitignore */,
 			);
 			path = "CPSC-411 Project";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				653442CF27C5F0CB00EFCAE6 /* Preview Assets.xcassets in Resources */,
+				653442F227C5F13800EFCAE6 /* .gitignore in Resources */,
 				653442CC27C5F0CB00EFCAE6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
