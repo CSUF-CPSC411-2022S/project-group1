@@ -15,6 +15,7 @@
 		653442E327C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E227C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift */; };
 		653442E527C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */; };
 		653442F227C5F13800EFCAE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 653442F127C5F13800EFCAE6 /* .gitignore */; };
+		7A37378427C8831400646279 /* looping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A37378327C8831400646279 /* looping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		653442E227C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITests.swift; sourceTree = "<group>"; };
 		653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		653442F127C5F13800EFCAE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7A37378327C8831400646279 /* looping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = looping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				653442CB27C5F0CB00EFCAE6 /* Assets.xcassets */,
 				653442CD27C5F0CB00EFCAE6 /* Preview Content */,
 				653442F127C5F13800EFCAE6 /* .gitignore */,
+				7A37378327C8831400646279 /* looping.swift */,
 			);
 			path = "CPSC-411 Project";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				653442CA27C5F0C900EFCAE6 /* ContentView.swift in Sources */,
 				653442C827C5F0C900EFCAE6 /* CPSC_411_ProjectApp.swift in Sources */,
+				7A37378427C8831400646279 /* looping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,3 +19,9 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+struct animation: animation{
+    
+}
+struct looping: looping{
+    
+}
