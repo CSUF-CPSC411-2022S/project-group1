@@ -8,27 +8,36 @@
 import Foundation
 
 //import UIKit
-class MysteryBox{//:UIViewController{
+class MysteryBox: ObservableObject{//:UIViewController{
     //start code here
-    //var randomNum: Int?
-    
+    var randomNum: Int?
+    var prize: String
+    var num: Int
+    //private var size: Int  = 9
+    //private (set) var
     
     
     func randomNumber()-> Int{
         
-        let num: Int
+        let num: Int = Int.random(in: 1...30)
+        var value: Int = 0
         switch num
         {
             
-            case 1...10: return 1
-            //case 11...20: return 2
-            //case 21...30: return 3
+            case 1...10: value = 1
+            case 11...20: value = 2
+            case 21...30: value = 3
             default: return 0
         }
-        //print(Int.random(in: 1...10))
-        
+        return value
     }
+    /*func randomNumber(){
+        print(Int.random(in: 1...10))
+           }*/
+        
+
     init (){
         
     }
+
 }

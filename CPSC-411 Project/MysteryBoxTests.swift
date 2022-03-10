@@ -11,9 +11,9 @@ class MysteryBoxTests: XCTestCase {
 
    
     func testValidNumber(){
-        var box1 = MysteryBox()
-        XCTAssertEqual(box1.num, 1)
-        
+        let box1 = MysteryBox()
+        XCTAssertEqual(box1.randomNumber(), 1)
+        //XCTAssertEqual(box1.randomNumber(),2)
     }
-
+    
 }

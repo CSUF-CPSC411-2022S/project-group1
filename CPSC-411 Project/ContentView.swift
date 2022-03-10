@@ -20,7 +20,7 @@ import SwiftUI
 }*/
 
 struct MysteryBoxView: View {
-    @State var box = MysteryBox()
+    @StateObject var box = MysteryBox()
     var body: some View {
         //@State var box = MysteryBox()
         VStack{
