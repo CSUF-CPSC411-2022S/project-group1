@@ -11,24 +11,32 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Welcome to Random Games").font(.title).padding()
-                Spacer()
-                HStack (alignment: .center) {
-                NavigationLink(destination: DicerollView()) {
-                    Text("Dice Roll").modifier(ButtonDesign())
+            ZStack {
+                Color.red.ignoresSafeArea()
+                Circle()
+                    .scale(1.5)
+                    .foregroundColor(.white)
+                VStack {
+                    Text("Welcome to Decision Maker").font(.title).padding()
+                    Spacer()
+                    HStack (alignment: .center) {
+                        NavigationLink(destination: DicerollView()) {
+                            Text("Dice Roll").modifier(ButtonDesign())
+                        }
+                        NavigationLink(destination: EmptyView()) {
+                            Text("Coin Flip").modifier(ButtonDesign())
+                        }
+                        NavigationLink(destination: EmptyView()) {
+                            Text("Mystery Box").modifier(ButtonDesign())
+                        }
+                    }
+                    Spacer()
+                    NavigationLink(destination: LoginView()){
+                        Text("Login").modifier(ButtonDesign()).padding()
+                    }
                 }
-                NavigationLink(destination: DicerollView()) {
-                    Text("Coin Flip").modifier(ButtonDesign())
-                }
-                NavigationLink(destination: DicerollView()) {
-                    Text("Mystery Box").modifier(ButtonDesign())
-                }
-            }
-            Spacer()
-            }
-        }.navigationBarHidden(true)
-
+            }.navigationBarHidden(true)
+        }
     }
 }
 
@@ -75,13 +83,34 @@ struct DicerollView: View {
                     }, label: {
                         Text("add food place").padding()
                     })
+                    Spacer()
                 }
             }
+            .navigationBarHidden(true)
             
         }
     }
     
 }
+
+struct EmptyView: View {
+    var body: some View {
+        NavigationView {
+            ZStack {
+                VStack {
+                    Text("Welcome").font(.title).padding()
+                    Spacer()
+                }
+            }
+            .navigationBarHidden(true)
+            
+        }
+    }
+    
+}
+
+
+
 
 
 

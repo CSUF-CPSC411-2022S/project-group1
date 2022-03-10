@@ -45,4 +45,5 @@ struct LoginButton: ViewModifier {
             .background(Color.blue)
             .cornerRadius(10)
     }
+    
 }
