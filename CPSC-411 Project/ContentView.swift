@@ -33,10 +33,10 @@ struct ContentView_Previews: PreviewProvider {
 }
 struct toss: View{
     @State var flipping = false
-    @State var heads = false
-    @State var intensity: Int = 0
-    @State var tailscounting: Int = 0
-    @State var headscounting: Int = 0
+       @State var heads = false
+       @State var intensity: Int = 0
+       @State var tailscounting: Int = 0
+       @State var headscounting: Int = 0
     var body: some View{
         VStack{
             VStack{
@@ -70,10 +70,10 @@ struct Coin: View {
         ZStack{
             Circle()
                 .foregroundColor(.blue)
-                .frame(width:100, height:100)
+                .frame(width:200, height:200)
             Circle()
                 .foregroundColor(.purple)
-                .frame(width: 85 , height: 85)
+                .frame(width: 150 , height: 150)
         }
     }
      
