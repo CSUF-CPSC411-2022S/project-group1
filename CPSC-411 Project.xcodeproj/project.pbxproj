@@ -16,7 +16,7 @@
 		653442E527C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */; };
 		653442F227C5F13800EFCAE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 653442F127C5F13800EFCAE6 /* .gitignore */; };
 		DB1751EC27D9AB5D00F731FB /* MysteryBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1751EB27D9AB5D00F731FB /* MysteryBox.swift */; };
-		DB1751EE27D9B3DF00F731FB /* MysteryBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1751ED27D9B3DF00F731FB /* MysteryBoxTests.swift */; };
+		DBE819BB27DA534D0039A506 /* MysteryBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE819BA27DA534D0039A506 /* MysteryBoxTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		653442F127C5F13800EFCAE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DB1751EB27D9AB5D00F731FB /* MysteryBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysteryBox.swift; sourceTree = "<group>"; };
-		DB1751ED27D9B3DF00F731FB /* MysteryBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysteryBoxTests.swift; sourceTree = "<group>"; };
+		DBE819BA27DA534D0039A506 /* MysteryBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysteryBoxTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				653442CD27C5F0CB00EFCAE6 /* Preview Content */,
 				653442F127C5F13800EFCAE6 /* .gitignore */,
 				DB1751EB27D9AB5D00F731FB /* MysteryBox.swift */,
-				DB1751ED27D9B3DF00F731FB /* MysteryBoxTests.swift */,
+				DBE819BA27DA534D0039A506 /* MysteryBoxTests.swift */,
 			);
 			path = "CPSC-411 Project";
 			sourceTree = "<group>";
@@ -268,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				653442CA27C5F0C900EFCAE6 /* ContentView.swift in Sources */,
-				DB1751EE27D9B3DF00F731FB /* MysteryBoxTests.swift in Sources */,
 				DB1751EC27D9AB5D00F731FB /* MysteryBox.swift in Sources */,
 				653442C827C5F0C900EFCAE6 /* CPSC_411_ProjectApp.swift in Sources */,
 			);
@@ -279,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				653442D927C5F0CB00EFCAE6 /* CPSC_411_ProjectTests.swift in Sources */,
+				DBE819BB27DA534D0039A506 /* MysteryBoxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
