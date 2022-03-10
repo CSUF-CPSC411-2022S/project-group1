@@ -7,6 +7,18 @@
 
 import Foundation
 
-class DiceRoll {
-    //add code
+
+class DiceRoll: ObservableObject {
+    private var maxsize: Int = 5
+    private var FoodList: [String] = [String](repeating: "", count: 5)
+    
+    func FoodOption(_ Foodchoice: String) {
+        if FoodList.capacity != maxsize {
+            FoodList.append(Foodchoice)
+        }
+    }
+    
+    init () {
+        
+    }
 }
