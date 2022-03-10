@@ -14,7 +14,7 @@ struct ContentView: View {
             VStack {
                 Text("Welcome to Random Games").font(.title).padding()
                 Spacer()
-            HStack {
+                HStack (alignment: .center) {
                 NavigationLink(destination: DicerollView()) {
                     Text("Dice Roll").modifier(ButtonDesign())
                 }
@@ -61,14 +61,20 @@ struct LoginView: View {
 }
 
 struct DicerollView: View {
-    @StateObject var dice = DiceRoll()
+    @State var Foodpalce: String = ""
+    @State var Manager = DiceRollManager()
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
-                    
+                    TextField("Enter food Option", text: $Foodpalce)
+                    Button(action: {
+                        Manager.AddOption(Foodpalce)
+                    }, label: {
+                        Text("add food place").padding()
+                    })
                 }
             }
             
