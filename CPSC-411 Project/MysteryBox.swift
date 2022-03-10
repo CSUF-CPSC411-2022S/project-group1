@@ -6,9 +6,16 @@
 //
 
 import Foundation
-import UIKit
+//import UIKit
 
-class MysteryBox:UIViewController{
+class MysteryBox{//:UIViewController{
     //start code here
+    var randomNum: Int?
+    
+    
+    func randomNumber(){
+        randomNum = 0...10
+        print(randomNum)
+    }
     
 }
