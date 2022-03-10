@@ -7,18 +7,22 @@
 
 import SwiftUI
 
-struct ContentView: View {
+/*struct ContentView: View {
     var body: some View {
         Text("What's in the box?!")
             .padding()
         Image("Box")
         Button("Open Box", action:{
-            print("")
+            //print("")
+            //Text
         }).modifier(ButtonDesign())
     }
-}
+}*/
+
 struct MysteryBoxView: View {
+    @State var box = MysteryBox()
     var body: some View {
+        //@State var box = MysteryBox()
         VStack{
             Text("What's in the box?!")
                 .font(.title)
@@ -26,7 +30,8 @@ struct MysteryBoxView: View {
             }
         Image("Box")
         Button("Open Box", action:{
-            print("")
+            //print("")
+            box.randomNumber()
         }).modifier(ButtonDesign())
     }
 }

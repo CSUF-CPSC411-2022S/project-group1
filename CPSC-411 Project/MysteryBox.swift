@@ -10,12 +10,12 @@ import Foundation
 
 class MysteryBox{//:UIViewController{
     //start code here
-    var randomNum: Int?
+    //var randomNum: Int?
     
     
     func randomNumber(){
-        randomNum = 0...10
-        print(randomNum)
+            print(Int.random(in: 1...10))
+        
     }
     
 }
