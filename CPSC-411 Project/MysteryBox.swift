@@ -10,9 +10,9 @@ import Foundation
 //import UIKit
 class MysteryBox: ObservableObject{//:UIViewController{
     //start code here
-    var randomNum: Int?
-    var prize: String
-    var num: Int
+    //var randomNum: Int?
+    //var prize: String
+    //var num: Int
     //private var size: Int  = 9
     //private (set) var
     
