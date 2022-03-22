@@ -52,13 +52,23 @@ struct toss: View{
         }
     }
     func FlipCoin(){
-        
+        withAnimation{
+            let randomNumber = Int.random(in:5...6)
+            if intensity > 1800000000{
+                restart()
+            }
+            intensity+=(randomNumber*180)
+            HeadsTails()
+            flipping.toggle()
+        }
     }
     func HeadsTails(){
-        
+     let divided = intensity / 180
+        (divided%2)==0 ? (heads=false):(heads=true)
+        heads == true ? (headscounting += 1) : (tailscounting += 1)
     }
     func restart(){
-        
+       intensity = 0
     }
             //WelcomeScreen()
             

@@ -37,8 +37,15 @@ class CPSC_411_ProjectTests: XCTestCase {
 class CoinToss: XCTestCase{
     func testCoin(){
         let coin = toss()
-        XCTAssertEqual(coin.tailscounting + coin.headscounting,1)
+        XCTAssertEqual(coin.tailscounting + coin.headscounting,0)
         
     }
-    
+    func testHead(){
+    let coin = toss()
+        XCTAssertEqual(coin.headscounting,0)
+    }
+    func testTail(){
+        let coin = toss()
+        XCTAssertEqual(coin.tailscounting,0)
+    }
 }
