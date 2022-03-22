@@ -10,10 +10,9 @@ import XCTest
 class MysteryBoxTests: XCTestCase {
 
    
-    func testValidNumber(){
+    func testPrizesInBox(){
         let box1 = MysteryBox()
-        XCTAssertEqual(box1.randomNumber(), 1)
-        //XCTAssertEqual(box1.randomNumber(),2)
+        XCTAssertFalse(box1.prizes.isEmpty)
     }
     
 }

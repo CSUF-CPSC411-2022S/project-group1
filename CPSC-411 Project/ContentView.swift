@@ -29,10 +29,17 @@ struct MysteryBoxView: View {
                 .padding()
             }
         Image("Box")
-        Button("Open Box", action:{
-            //print("")
-            box.randomNumber()
-        }).modifier(ButtonDesign())
+        HStack{
+            Button("Open Box", action:{
+                //print("")
+                box.randomPrize()
+            }).modifier(ButtonDesign())
+            
+            Button("Check Box", action:{
+                box.prizeList()
+            }).modifier(ButtonDesign())
+            
+        }
     }
 }
 

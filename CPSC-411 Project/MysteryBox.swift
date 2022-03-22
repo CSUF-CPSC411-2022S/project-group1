@@ -10,30 +10,31 @@ import Foundation
 //import UIKit
 class MysteryBox: ObservableObject{//:UIViewController{
     //start code here
-    //var randomNum: Int?
     //var prize: String
-    //var num: Int
-    //private var size: Int  = 9
-    //private (set) var
+    var prizes = [
+        "Nothing Here!, try agian?",
+        "$5 Coupon to Target?",
+        "Free Burger from Five Guys",
+        "Here's a quarter",
+    ]
     
     
-    func randomNumber()-> Int{
+    
+    func randomPrize(){
         
-        let num: Int = Int.random(in: 1...30)
-        var value: Int = 0
-        switch num
-        {
-            
-            case 1...10: value = 1
-            case 11...20: value = 2
-            case 21...30: value = 3
-            default: return 0
+        let num: Int = Int.random(in: 1...prizes.count)
+        let index = num - 1
+        print(prizes[index])
+        prizes.remove(at: index)
+        if(prizes.count == 0){
+            print("You have received every single prize")
         }
-        return value
+       
     }
-    /*func randomNumber(){
-        print(Int.random(in: 1...10))
-           }*/
+    func prizeList(){
+        print("There are " + "\(prizes.count)" + " prizes in this box")
+    }
+    
         
 
     init (){
