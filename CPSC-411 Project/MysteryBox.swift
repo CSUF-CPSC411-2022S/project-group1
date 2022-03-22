@@ -12,7 +12,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
     //start code here
     //var prize: String
     var prizes = [
-        "Nothing Here!, try agian?",
+        "A blank check?",
         "$5 Coupon to Target?",
         "Free Burger from Five Guys",
         "Here's a quarter",
@@ -31,6 +31,9 @@ class MysteryBox: ObservableObject{//:UIViewController{
         }
        
     }
+    /*func addPrize(){
+        
+    }*/
     func prizeList(){
         print("There are " + "\(prizes.count)" + " prizes in this box")
     }

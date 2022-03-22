@@ -21,6 +21,7 @@ import SwiftUI
 
 struct MysteryBoxView: View {
     @StateObject var box = MysteryBox()
+    @State var message: String = ""
     var body: some View {
         //@State var box = MysteryBox()
         VStack{
@@ -31,7 +32,7 @@ struct MysteryBoxView: View {
         Image("Box")
         HStack{
             Button("Open Box", action:{
-                //print("")
+                //Text
                 box.randomPrize()
             }).modifier(ButtonDesign())
             
