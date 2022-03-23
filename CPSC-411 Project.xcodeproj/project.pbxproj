@@ -105,7 +105,6 @@
 				653442CB27C5F0CB00EFCAE6 /* Assets.xcassets */,
 				653442CD27C5F0CB00EFCAE6 /* Preview Content */,
 				653442F127C5F13800EFCAE6 /* .gitignore */,
-				DBE819BA27DA534D0039A506 /* MysteryBoxTests.swift */,
 				DB1751EB27D9AB5D00F731FB /* MysteryBox.swift */,
 			);
 			path = "CPSC-411 Project";
@@ -122,6 +121,7 @@
 		653442D727C5F0CB00EFCAE6 /* CPSC-411 ProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				DBE819BA27DA534D0039A506 /* MysteryBoxTests.swift */,
 				653442D827C5F0CB00EFCAE6 /* CPSC_411_ProjectTests.swift */,
 			);
 			path = "CPSC-411 ProjectTests";
