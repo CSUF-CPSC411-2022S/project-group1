@@ -18,10 +18,9 @@ import SwiftUI
         }).modifier(ButtonDesign())
     }
 }*/
-
-struct MysteryBoxView: View {
+struct MysteryBoxView:View{
     @StateObject var box = MysteryBox()
-    //@State var message: String = ""
+    @State var message: String = ""
     var body: some View {
         //@State var box = MysteryBox()
         VStack{
@@ -64,5 +63,6 @@ struct ButtonDesign: ViewModifier {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MysteryBoxView()
+        //ContentView()
     }
 }

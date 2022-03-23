@@ -24,12 +24,11 @@ class MysteryBox: ObservableObject{//:UIViewController{
         
         let num: Int = Int.random(in: 1...prizes.count)
         let index = num - 1
-        //var reward: String = ""
-        print (prizes[index])
+        print(prizes[index])
         prizes.remove(at: index)
         if(prizes.count == 0){
-            print("You have received every single prize")
-        }
+           print("You have received every single prize")
+       }
        
     }
     /*func addPrize(){
