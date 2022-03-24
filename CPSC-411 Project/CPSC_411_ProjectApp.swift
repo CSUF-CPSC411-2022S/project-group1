@@ -11,8 +11,7 @@ import SwiftUI
 struct CPSC_411_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-            MysteryBoxView()
+            ContentView()
         }
     }
 }
