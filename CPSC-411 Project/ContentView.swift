@@ -6,13 +6,9 @@
 //
 import SwiftUI
 
-
 struct ContentView: View {
     var body: some View {
-
-        toss()
-            
-
+        
         NavigationView {
             ZStack {
                 Color.red.ignoresSafeArea()
@@ -26,7 +22,7 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: WelcomeScreen()) {
                             Text("Coin Flip").modifier(ButtonDesign())
                         }
                         NavigationLink(destination: EmptyView()) {
@@ -115,28 +111,26 @@ struct EmptyView: View {
 
 
 
-
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-    struct WelcomeScreen: View {
-    var body: some View{
-        
-            Text("Welcome to our game")
-                .font(.custom("Times New Roman", size: 40))
-                           .foregroundColor(Color.black)
-                           .padding(.bottom,30)
-                           .background(Color.white)
-                           .cornerRadius(10)
-        Image("86")
 }
+
+struct WelcomeScreen: View {
+var body: some View{
+    
+        Text("Welcome to our game")
+            .font(.custom("Times New Roman", size: 40))
+                       .foregroundColor(Color.black)
+                       .padding(.bottom,30)
+                       .background(Color.white)
+                       .cornerRadius(10)
+    Image("86")
+    toss()
+    }
 }
-}
+
 struct toss: View{
     @State var flipping = false
        @State var heads = false
