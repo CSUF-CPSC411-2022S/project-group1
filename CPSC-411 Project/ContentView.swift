@@ -36,7 +36,7 @@ struct MysteryBoxView:View{
             }).modifier(ButtonDesign())
             
             Button("Check Box", action:{
-                box.prizeList()
+                Text(box.prizeList())
             }).modifier(ButtonDesign())
             
         }
