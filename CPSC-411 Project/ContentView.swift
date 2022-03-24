@@ -6,39 +6,8 @@
 //
 import SwiftUI
 
-/*struct ContentView: View {
+struct ContentView: View {
     var body: some View {
- MysteryBox_class
-        Text("What's in the box?!")
-            .padding()
-        Image("Box")
-        Button("Open Box", action:{
-            //print("")
-            //Text
-        }).modifier(ButtonDesign())
-    }
-}*/
-struct MysteryBoxView:View{
-    @StateObject var box = MysteryBox()
-    @State var message: String = ""
-    var body: some View {
-        //@State var box = MysteryBox()
-        VStack{
-            Text("What's in the box?!")
-                .font(.title)
-                .padding()
-            }
-        Image("Box")
-        HStack{
-            Button("Open Box", action:{
-                //Text
-                box.randomPrize()
-            }).modifier(ButtonDesign())
-            
-            Button("Check Box", action:{
-                Text(box.prizeList())
-            }).modifier(ButtonDesign())
-
         
         NavigationView {
             ZStack {
@@ -134,39 +103,17 @@ struct EmptyView: View {
                 }
             }
             .navigationBarHidden(true)
- main
             
         }
     }
     
 }
 
- MysteryBox_class
-struct RoundedBackground: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding(10)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .padding(10)
-    }
-}
-
-struct ButtonDesign: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .modifier(RoundedBackground())
-            .foregroundColor(Color.white)
-    }
-}
 
 
-
- main
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MysteryBoxView()
-        //ContentView()
+        ContentView()
     }
 }
 
