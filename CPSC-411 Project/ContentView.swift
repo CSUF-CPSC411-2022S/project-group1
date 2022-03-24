@@ -25,7 +25,7 @@ struct ContentView: View {
                         NavigationLink(destination: WelcomeScreen()) {
                             Text("Coin Flip").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
                         }
                     }
@@ -190,3 +190,27 @@ struct Coin: View {
     
 }
 
+struct MysteryBoxView:View{
+    @StateObject var box = MysteryBox()
+    @State var message: String = ""
+    var body: some View {
+        //@State var box = MysteryBox()
+        VStack{
+            Text("What's in the box?!")
+                .font(.title)
+                .padding()
+        }
+        Image("Box")
+        HStack{
+            Button("Open Box", action:{
+                //Text
+                box.randomPrize()
+            }).modifier(ButtonDesign())
+            
+            Button("Check Box", action:{
+                box.prizeList()
+            }).modifier(ButtonDesign())
+            
+        }
+    }
+}
