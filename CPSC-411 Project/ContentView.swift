@@ -8,9 +8,10 @@ import SwiftUI
 
 
 struct ContentView: View {
+
     var body: some View {
 
-        toss()
+        
             
 
         NavigationView {
@@ -26,7 +27,7 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: toss(test: Coin())) {
                             Text("Coin Flip").modifier(ButtonDesign())
                         }
                         NavigationLink(destination: EmptyView()) {
@@ -138,25 +139,31 @@ struct ContentView_Previews: PreviewProvider {
 }
 }
 struct toss: View{
+    @ObservedObject var test: Coin
+    /*
     @State var flipping = false
-       @State var heads = false
-       @State var intensity: Int = 0
-       @State var tailscounting: Int = 0
-       @State var headscounting: Int = 0
+     @State var heads = false
+    
+     @State var intensity: Int = 0
+     @State var tailscounting: Int = 0
+     @State var headscounting: Int = 0*/
+    
     var body: some View{
         VStack{
             VStack{
-                Text("Heads: \(headscounting)")
-                Text("Tails: \(tailscounting)")
+                Text("Heads: \(test.headscounting)")
+                Text("Tails: \(test.tailscounting)")
             }
             Spacer()
-            Coin(Flipping: $flipping,Heads:$heads)
+            Coining(Flipping: self.$test.flipping,Heads:self.$test.heads)
             Spacer()
             Button("Take your Chances"){
-                FlipCoin()
+                test.FlipCoin()
             }
         }
     }
+}
+    /*
     func FlipCoin(){
         withAnimation{
             let randomNumber = Int.random(in:5...6)
@@ -175,11 +182,11 @@ struct toss: View{
     }
     func restart(){
        intensity = 0
-    }
+    }*/
             //WelcomeScreen()
             
-}
-struct Coin: View {
+
+struct Coining: View {
     @Binding var Flipping:Bool
     @Binding var Heads: Bool
     var body: some View{

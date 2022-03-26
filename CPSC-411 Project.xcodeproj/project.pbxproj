@@ -15,13 +15,10 @@
 		653442E327C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E227C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift */; };
 		653442E527C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */; };
 		653442F227C5F13800EFCAE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 653442F127C5F13800EFCAE6 /* .gitignore */; };
-
-		7A37379927DAA65A00646279 /* cointoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A37379827DAA65A00646279 /* cointoss.swift */; };
-
 		6541CECA27C8380400D8C208 /* DiceRoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6541CEC927C8380400D8C208 /* DiceRoll.swift */; };
 		65F5F8C627D80F8E00A9F76D /* modifers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5F8C527D80F8E00A9F76D /* modifers.swift */; };
 		65F5F8CC27D9D04D00A9F76D /* DiceRollMangerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5F8CB27D9D04D00A9F76D /* DiceRollMangerTest.swift */; };
-
+		7A15AD2527EE9376004FFB30 /* cointoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A15AD2427EE9376004FFB30 /* cointoss.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +50,10 @@
 		653442E227C5F0CB00EFCAE6 /* CPSC_411_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITests.swift; sourceTree = "<group>"; };
 		653442E427C5F0CB00EFCAE6 /* CPSC_411_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPSC_411_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		653442F127C5F13800EFCAE6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-
-		7A37379827DAA65A00646279 /* cointoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cointoss.swift; sourceTree = "<group>"; };
-
 		6541CEC927C8380400D8C208 /* DiceRoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRoll.swift; sourceTree = "<group>"; };
 		65F5F8C527D80F8E00A9F76D /* modifers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modifers.swift; sourceTree = "<group>"; };
 		65F5F8CB27D9D04D00A9F76D /* DiceRollMangerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollMangerTest.swift; sourceTree = "<group>"; };
-
+		7A15AD2427EE9376004FFB30 /* cointoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cointoss.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +110,8 @@
 				653442CB27C5F0CB00EFCAE6 /* Assets.xcassets */,
 				653442CD27C5F0CB00EFCAE6 /* Preview Content */,
 				653442F127C5F13800EFCAE6 /* .gitignore */,
-
-				7A37379827DAA65A00646279 /* cointoss.swift */,
-
+				7A15AD2427EE9376004FFB30 /* cointoss.swift */,
 				6541CEC927C8380400D8C208 /* DiceRoll.swift */,
-
 			);
 			path = "CPSC-411 Project";
 			sourceTree = "<group>";
@@ -282,11 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A15AD2527EE9376004FFB30 /* cointoss.swift in Sources */,
 				653442CA27C5F0C900EFCAE6 /* ContentView.swift in Sources */,
 				6541CECA27C8380400D8C208 /* DiceRoll.swift in Sources */,
 				65F5F8C627D80F8E00A9F76D /* modifers.swift in Sources */,
 				653442C827C5F0C900EFCAE6 /* CPSC_411_ProjectApp.swift in Sources */,
-				7A37379927DAA65A00646279 /* cointoss.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
