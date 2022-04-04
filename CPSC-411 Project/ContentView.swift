@@ -7,15 +7,8 @@
 import SwiftUI
 
 struct ContentView: View {
-
     var body: some View {
-
-
         
-            
-
-        
-
         NavigationView {
             ZStack {
                 Color.red.ignoresSafeArea()
@@ -29,12 +22,13 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-
+                        
                         NavigationLink(destination: toss(test: Coin())) {
 
-                        NavigationLink(destination: WelcomeScreen()) {
+                                               NavigationLink(destination: WelcomeScreen()) {
 
-                            Text("Coin Flip").modifier(ButtonDesign())
+                                                   Text("Coin Flip").modifier(ButtonDesign())
+                                               }
                         }
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
@@ -138,7 +132,7 @@ var body: some View{
                        .background(Color.white)
                        .cornerRadius(10)
     Image("86")
-    toss()
+    toss(test: Coin())
     }
 }
 
@@ -146,12 +140,11 @@ struct toss: View{
     @ObservedObject var test: Coin
     /*
     @State var flipping = false
-     @State var heads = false
-    
-     @State var intensity: Int = 0
-     @State var tailscounting: Int = 0
-     @State var headscounting: Int = 0*/
-    
+       @State var heads = false
+       @State var intensity: Int = 0
+       @State var tailscounting: Int = 0
+       @State var headscounting: Int = 0
+     */
     var body: some View{
         VStack{
             VStack{
@@ -166,7 +159,6 @@ struct toss: View{
             }
         }
     }
-}
     /*
     func FlipCoin(){
         withAnimation{
@@ -186,23 +178,23 @@ struct toss: View{
     }
     func restart(){
        intensity = 0
-    }*/
+    }
             //WelcomeScreen()
-            
-
+ */
+}
 struct Coining: View {
     @Binding var Flipping:Bool
     @Binding var Heads: Bool
     var body: some View{
         ZStack{
             Image("heads")
-                .clipShape(Circle())
+                            .clipShape(Circle())
                 .foregroundColor(.blue)
                 .frame(width:200, height:200)
             Image("tails")
-                .clipShape(Circle())
+                            .clipShape(Circle())
                 .foregroundColor(.purple)
-                .frame(width: 180 , height: 180)
+                .frame(width: 150 , height: 150)
         }
     }
      
