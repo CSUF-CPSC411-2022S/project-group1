@@ -6,13 +6,15 @@
 //
 import SwiftUI
 
-
 struct ContentView: View {
 
     var body: some View {
 
+
         
             
+
+        
 
         NavigationView {
             ZStack {
@@ -27,10 +29,14 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
+
                         NavigationLink(destination: toss(test: Coin())) {
+
+                        NavigationLink(destination: WelcomeScreen()) {
+
                             Text("Coin Flip").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
                         }
                     }
@@ -116,28 +122,26 @@ struct EmptyView: View {
 
 
 
-
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-    struct WelcomeScreen: View {
-    var body: some View{
-        
-            Text("Welcome to our game")
-                .font(.custom("Times New Roman", size: 40))
-                           .foregroundColor(Color.black)
-                           .padding(.bottom,30)
-                           .background(Color.white)
-                           .cornerRadius(10)
-        Image("86")
 }
+
+struct WelcomeScreen: View {
+var body: some View{
+    
+        Text("Welcome to our game")
+            .font(.custom("Times New Roman", size: 40))
+                       .foregroundColor(Color.black)
+                       .padding(.bottom,30)
+                       .background(Color.white)
+                       .cornerRadius(10)
+    Image("86")
+    toss()
+    }
 }
-}
+
 struct toss: View{
     @ObservedObject var test: Coin
     /*
@@ -205,3 +209,27 @@ struct Coining: View {
     
 }
 
+struct MysteryBoxView:View{
+    @StateObject var box = MysteryBox()
+    @State var message: String = ""
+    var body: some View {
+        //@State var box = MysteryBox()
+        VStack{
+            Text("What's in the box?!")
+                .font(.title)
+                .padding()
+        }
+        Image("Box")
+        HStack{
+            Button("Open Box", action:{
+                //Text
+                box.randomPrize()
+            }).modifier(ButtonDesign())
+            
+            Button("Check Box", action:{
+                box.prizeList()
+            }).modifier(ButtonDesign())
+            
+        }
+    }
+}
