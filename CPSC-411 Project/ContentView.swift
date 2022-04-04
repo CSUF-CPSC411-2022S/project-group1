@@ -191,12 +191,14 @@ struct Coining: View {
     @Binding var Heads: Bool
     var body: some View{
         ZStack{
-            Circle()
+            Image("heads")
+                .clipShape(Circle())
                 .foregroundColor(.blue)
                 .frame(width:200, height:200)
-            Circle()
+            Image("tails")
+                .clipShape(Circle())
                 .foregroundColor(.purple)
-                .frame(width: 150 , height: 150)
+                .frame(width: 180 , height: 180)
         }
     }
      
