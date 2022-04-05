@@ -191,14 +191,13 @@ struct Coin: View {
 }
 
 struct MysteryBoxView:View{
-    @StateObject var box = MysteryBox()
+    @ObservedObject var box = MysteryBox()
     @State var message: String = ""
     var body: some View {
         //@State var box = MysteryBox()
         VStack{
             Text("What's in the box?!")
-                .font(.title)
-                .padding()
+                .font(.title).padding()
         }
         Image("Box")
         HStack{
@@ -208,7 +207,8 @@ struct MysteryBoxView:View{
             }).modifier(ButtonDesign())
             
             Button("Check Box", action:{
-                box.prizeList()
+                Text(box.prizeList())
+                    //.padding()
             }).modifier(ButtonDesign())
             
         }
