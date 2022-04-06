@@ -153,6 +153,7 @@ struct toss: View{
             }
             Spacer()
             Coining(Flipping: self.$test.flipping,Heads:self.$test.heads)
+                .rotation3DEffect(Angle(degrees: Double(test.intensity)), axis: (x:CGFloat(0),y:CGFloat(10),z:CGFloat(0)))
             Spacer()
             Button("Take your Chances"){
                 test.FlipCoin()
@@ -194,7 +195,7 @@ struct Coining: View {
             Image("tails")
                             .clipShape(Circle())
                 .foregroundColor(.purple)
-                .frame(width: 150 , height: 150)
+                .frame(width: 200 , height: 200)
         }
     }
      
