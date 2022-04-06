@@ -137,6 +137,7 @@ var body: some View{
 }
 
 struct toss: View{
+    
     @ObservedObject var test: Coin
     var body: some View{
         VStack{

@@ -10,8 +10,8 @@ class Coin: ObservableObject {
     @Published var flipping = false
     @Published var heads = false
    @Published var intensity: Int = 0
-    @Published var tailscounting: Int = 0
-   @Published var headscounting: Int = 0
+    @AppStorage("tailscounting") var tailscounting: Int = 0
+   @AppStorage("headscounting") var headscounting: Int = 0
    func FlipCoin(){
         withAnimation{
             let randomNumber = Int.random(in:5...6)
