@@ -222,11 +222,12 @@ struct MysteryBoxView:View{
         
         Button(action:{
             
-            box.addPrize(newItem: newPrize)
+            box.addPrize(newPrize)
             
         }, label:{
             Text("Add coupon").padding()
         })
         Spacer()
+        
     }
 }
