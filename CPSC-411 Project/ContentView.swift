@@ -160,16 +160,18 @@ struct Coining: View {
     @Binding var Heads: Bool
     var body: some View{
         ZStack{
-            
+            if Heads {
             Image("heads")
                 .clipShape(Circle())
                 .foregroundColor(.blue)
                 .frame(width:200, height:200)
-            
+            }
+                else {
             Image("tails")
                 .clipShape(Circle())
                 .foregroundColor(.purple)
                 .frame(width: 180 , height: 180)
+                }
         }
     }
      
