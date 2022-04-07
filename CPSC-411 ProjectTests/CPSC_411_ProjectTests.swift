@@ -36,21 +36,22 @@ class CPSC_411_ProjectTests: XCTestCase {
 }
 class CoinToss: XCTestCase{
     func testCoin(){
-        let coin = Coin()
+        let coin = toss()
         coin.FlipCoin()
-        XCTAssertTrue(coin.tailsCounting + coin.headsCounting >= 1 ,"we failed to count a flip")
+        XCTAssertFalse(coin.tailscounting + coin.headscounting >= 1 ,"we failed to count a flip")
         
     }
     func testRestart(){
-            let coin = Coin()
+        let coin = toss()
         coin.restart()
         XCTAssertEqual(coin.intensity,0)
     }
     func testHead(){
-                let coin = Coin()
+    let coin = toss()
         coin.HeadsTails()
-        XCTAssertFalse(coin.heads,"its over 1")
+        XCTAssertEqual(coin.headscounting,0)
     }
+
+
     
 }
-
