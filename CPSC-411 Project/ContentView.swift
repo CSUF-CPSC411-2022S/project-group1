@@ -68,21 +68,26 @@ struct LoginView: View {
 }
 
 struct DicerollView: View {
-    @State var Foodpalce: String = ""
-    @State var Manager = DiceRollManager()
+    @SceneStorage("Foodplace") var Foodplace: String = ""
+    @StateObject var Manager = DiceRollManager()
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
-                    TextField("Enter food Option", text: $Foodpalce)
+                    TextField("Enter food Option", text: $Foodplace)
                     Button(action: {
-                        Manager.AddOption(Foodpalce)
+                        Manager.AddOption(Foodplace)
                     }, label: {
                         Text("add food place").padding()
                     })
                     Spacer()
+                    List {
+                        ForEach(Manager.FoodList, id: \.self) { option in
+                            Text(option)
+                        }
+                    }
                 }
             }
             .navigationBarHidden(true)
@@ -92,6 +97,7 @@ struct DicerollView: View {
     }
     
 }
+
 
 struct EmptyView: View {
     var body: some View {
