@@ -22,13 +22,13 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-                        
                         NavigationLink(destination: toss(test: Coin())) {
 
                                                NavigationLink(destination: WelcomeScreen()) {
 
                                                    Text("Coin Flip").modifier(ButtonDesign())
                                                }
+                        }
                         }
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
@@ -73,21 +73,26 @@ struct LoginView: View {
 }
 
 struct DicerollView: View {
-    @State var Foodpalce: String = ""
-    @State var Manager = DiceRollManager()
+    @SceneStorage("Foodplace") var Foodplace: String = ""
+    @StateObject var Manager = DiceRollManager()
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
-                    TextField("Enter food Option", text: $Foodpalce)
+                    TextField("Enter food Option", text: $Foodplace)
                     Button(action: {
-                        Manager.AddOption(Foodpalce)
+                        Manager.AddOption(Foodplace)
                     }, label: {
                         Text("add food place").padding()
                     })
                     Spacer()
+                    List {
+                        ForEach(Manager.FoodList, id: \.self) { option in
+                            Text(option)
+                        }
+                    }
                 }
             }
             .navigationBarHidden(true)
@@ -97,6 +102,7 @@ struct DicerollView: View {
     }
     
 }
+
 
 struct EmptyView: View {
     var body: some View {
@@ -119,6 +125,20 @@ struct EmptyView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct WelcomeScreen: View {
+var body: some View{
+    
+        Text("Welcome to our game")
+            .font(.custom("Times New Roman", size: 40))
+                       .foregroundColor(Color.black)
+                       .padding(.bottom,30)
+                       .background(Color.white)
+                       .cornerRadius(10)
+    Image("86")
+    toss(test: Coin())
     }
 }
 
