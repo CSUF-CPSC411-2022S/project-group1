@@ -22,8 +22,13 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: WelcomeScreen()) {
-                            Text("Coin Flip").modifier(ButtonDesign())
+                        
+                        NavigationLink(destination: toss(test: Coin())) {
+
+                                               NavigationLink(destination: WelcomeScreen()) {
+
+                                                   Text("Coin Flip").modifier(ButtonDesign())
+                                               }
                         }
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
@@ -68,26 +73,21 @@ struct LoginView: View {
 }
 
 struct DicerollView: View {
-    @SceneStorage("Foodplace") var Foodplace: String = ""
-    @StateObject var Manager = DiceRollManager()
+    @State var Foodpalce: String = ""
+    @State var Manager = DiceRollManager()
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
-                    TextField("Enter food Option", text: $Foodplace)
+                    TextField("Enter food Option", text: $Foodpalce)
                     Button(action: {
-                        Manager.AddOption(Foodplace)
+                        Manager.AddOption(Foodpalce)
                     }, label: {
                         Text("add food place").padding()
                     })
                     Spacer()
-                    List {
-                        ForEach(Manager.FoodList, id: \.self) { option in
-                            Text(option)
-                        }
-                    }
                 }
             }
             .navigationBarHidden(true)
@@ -97,7 +97,6 @@ struct DicerollView: View {
     }
     
 }
-
 
 struct EmptyView: View {
     var body: some View {
@@ -133,7 +132,7 @@ var body: some View{
                        .background(Color.white)
                        .cornerRadius(10)
     Image("86")
-    toss()
+    toss(test: Coin())
     }
 }
 
