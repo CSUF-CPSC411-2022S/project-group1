@@ -38,7 +38,7 @@ class CoinToss: XCTestCase{
     func testCoin(){
         let coin = Coin()
         coin.FlipCoin()
-        XCTAssertTrue(coin.tailscounting + coin.headscounting >= 1 ,"we failed to count a flip")
+        XCTAssertTrue(coin.tailsCounting + coin.headsCounting >= 1 ,"we failed to count a flip")
         
     }
     func testRestart(){
@@ -49,7 +49,7 @@ class CoinToss: XCTestCase{
     func testHead(){
                 let coin = Coin()
         coin.HeadsTails()
-        XCTAssertEqual(coin.headscounting,0)
+        XCTAssertFalse(coin.heads,"its over 1")
     }
     
 }

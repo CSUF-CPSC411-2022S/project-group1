@@ -9,7 +9,7 @@ import Foundation
 class Coin: ObservableObject {
     @Published var flipping = false
     @Published var heads = false
-   @Published var intensity: Int = 0
+   @AppStorage("intensity") var intensity: Int = 0
     @AppStorage("tailsCounting") var tailsCounting: Int = 0
    @AppStorage("headsCounting") var headsCounting: Int = 0
    func FlipCoin(){
