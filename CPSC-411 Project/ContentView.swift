@@ -22,8 +22,12 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: WelcomeScreen()) {
+                        NavigationLink(destination: toss(test: Coin())) {
+
+                            NavigationLink(destination: WelcomeScreen()) {
+
                             Text("Coin Flip").modifier(ButtonDesign())
+                                                                      }
                         }
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
@@ -133,7 +137,7 @@ var body: some View{
                        .background(Color.white)
                        .cornerRadius(10)
     Image("86")
-    toss()
+    toss(test: Coin())
     }
 }
 
