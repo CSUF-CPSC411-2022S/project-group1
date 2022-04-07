@@ -112,7 +112,6 @@
 				653442C927C5F0C900EFCAE6 /* ContentView.swift */,
 				65F5F8C527D80F8E00A9F76D /* modifers.swift */,
 				653442CB27C5F0CB00EFCAE6 /* Assets.xcassets */,
-				653442CE27C5F0CB00EFCAE6 /* Preview Assets.xcassets */,
 				653442CD27C5F0CB00EFCAE6 /* Preview Content */,
 				653442F127C5F13800EFCAE6 /* .gitignore */,
 				7A37379827DAA65A00646279 /* cointoss.swift */,
@@ -125,6 +124,7 @@
 		653442CD27C5F0CB00EFCAE6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				653442CE27C5F0CB00EFCAE6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
