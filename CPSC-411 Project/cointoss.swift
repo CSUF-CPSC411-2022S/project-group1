@@ -14,7 +14,7 @@ class Coin: ObservableObject {
    @AppStorage("headsCounting") var headsCounting: Int = 0
    func FlipCoin(){
         withAnimation{
-            let randomNumber = Int.random(in:5...6)
+            let randomNumber = Int.random(in:7...8)
             if intensity > 1800000000{
                 restart()
             }
