@@ -15,13 +15,13 @@ class MysteryBox: ObservableObject{//:UIViewController{
         "$5 Coupon to Target?",
         "Free Burger from Five Guys",
         "Here's a quarter",
+        "$10 gift card for Starbucks",
     ]
     
     
     
     /*func randomPrize()->String{
-        
-        let num: Int = Int.random(in: 1...prizes.count)
+        let num = Int.random(in: 1...prizes.count)
         let index = num - 1
         let temp = prizes[index]
         //prizes.remove(at: index)
@@ -30,7 +30,6 @@ class MysteryBox: ObservableObject{//:UIViewController{
        }
         prizes.remove(at: index)
         return temp
-       
     }*/
     func randomPrize(){
            
@@ -43,15 +42,27 @@ class MysteryBox: ObservableObject{//:UIViewController{
           }
           
        }
-    /*func addPrize(){
+    func addPrize(newItem: String){
+        let item: String
+        if(prizes.count > 0)
+        {
+            item = "$5 gift card for " + newItem
+            prizes.append(item)
+        }
+        /*if(prizes.count == 10)
+        {
+            return "The box is full"
+        }*/
         
-    }*/
+    }
     func prizeList()-> String{
         return "There are " + "\(prizes.count)" + " prizes in this box"
         
     }
-    
+    /*func prizeList(){
+        print ("There are " + "\(prizes.count)" + " prizes in this box")
         
+    }*/
 
     init (){
         

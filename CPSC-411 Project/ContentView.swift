@@ -192,6 +192,7 @@ struct Coin: View {
 
 struct MysteryBoxView:View{
     @ObservedObject var box = MysteryBox()
+    @SceneStorage("newPrize") var newPrize: String = ""
     @State var message: String = ""
     var body: some View {
         //@State var box = MysteryBox()
@@ -205,12 +206,27 @@ struct MysteryBoxView:View{
                 //Text
                 box.randomPrize()
             }).modifier(ButtonDesign())
-            
+        
             Button("Check Box", action:{
-                Text(box.prizeList())
+                //message = "Test"
+                    //Text(box.prizeList())
                     //.padding()
             }).modifier(ButtonDesign())
             
+            
+            
         }
+        Text(box.prizeList())
+        Spacer()
+        TextField("Enter a restaurant or a store", text: $newPrize)
+        
+        Button(action:{
+            
+            box.addPrize(newItem: newPrize)
+            
+        }, label:{
+            Text("Add coupon").padding()
+        })
+        Spacer()
     }
 }
