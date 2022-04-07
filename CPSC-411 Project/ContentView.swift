@@ -142,8 +142,8 @@ struct toss: View{
     var body: some View{
         VStack{
             VStack{
-                Text("Heads: \(test.headscounting)")
-                Text("Tails: \(test.tailscounting)")
+                Text("Heads: \(test.headsCounting)")
+                Text("Tails: \(test.tailsCounting)")
             }
             Spacer()
             Coining(Flipping: $test.flipping,Heads:$test.heads)
@@ -163,14 +163,12 @@ struct Coining: View {
             if Heads {
             Image("heads")
                 .clipShape(Circle())
-                .foregroundColor(.blue)
-                .frame(width:200, height:200)
+                .frame(width:300, height:300)
             }
                 else {
             Image("tails")
                 .clipShape(Circle())
-                .foregroundColor(.purple)
-                .frame(width: 180 , height: 180)
+                .frame(width: 300 , height: 300)
                 }
         }
     }

@@ -51,7 +51,6 @@ class CoinToss: XCTestCase{
         coin.HeadsTails()
         XCTAssertEqual(coin.headscounting,0)
     }
-
-
     
 }
+
