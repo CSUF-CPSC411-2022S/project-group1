@@ -168,12 +168,12 @@ struct Coining: View {
             if Heads {
             Image("heads")
                 .clipShape(Circle())
-                .frame(width:300, height:300)
+                .frame(width:150, height:150)
             }
                 else {
             Image("tails")
                 .clipShape(Circle())
-                .frame(width: 300 , height: 300)
+                .frame(width: 150 , height: 150)
                 }
         }
     }
