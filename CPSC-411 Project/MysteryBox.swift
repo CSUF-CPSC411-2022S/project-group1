@@ -18,10 +18,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
         "Here's a quarter",
         "$10 gift card for Starbucks",
     ]
-    
-    
-    
-    
+    //test
     /*func randomPrize()->String{
         let num = Int.random(in: 1...prizes.count)
         let index = num - 1
