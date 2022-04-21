@@ -80,6 +80,8 @@ struct DicerollView: View {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
+                    Image("Dice 1").padding()
+                    Spacer()
                     TextField("Enter food Option", text: $Foodplace)
                     Button(action: {
                         Manager.AddOption(Foodplace)
@@ -87,6 +89,25 @@ struct DicerollView: View {
                         Text("add food place").padding()
                     })
                     Spacer()
+                    NavigationLink(destination: OptionView()) {
+                        Text("List").modifier(ButtonDesign())
+                    }
+                }
+            }
+            .navigationBarHidden(true)
+            
+        }.environmentObject(Manager)
+
+    }
+}
+
+
+struct OptionView: View {
+    @EnvironmentObject var Manager: DiceRollManager
+    var body: some View {
+        NavigationView {
+            ZStack {
+                VStack {
                     List {
                         ForEach(Manager.FoodList, id: \.self) { option in
                             Text(option)
@@ -97,26 +118,7 @@ struct DicerollView: View {
             .navigationBarHidden(true)
             
         }
-
     }
-    
-}
-
-
-struct EmptyView: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                VStack {
-                    Text("Welcome").font(.title).padding()
-                    Spacer()
-                }
-            }
-            .navigationBarHidden(true)
-            
-        }
-    }
-    
 }
 
 
