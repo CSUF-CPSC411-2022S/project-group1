@@ -10,15 +10,15 @@ import Foundation
 
 class DiceRollManager: ObservableObject {
     private var maxsize: Int = 5
-    private(set) var FoodList: [String] = [String](repeating: "", count: 5)
+    private(set) var FoodList: [String] = []
     
     func AddOption(_ Foodchoice: String) {
         if FoodList.capacity != maxsize {
             FoodList.append(Foodchoice)
-        }
+        } 
     }
     
     init () {
-        
+       
     }
 }
