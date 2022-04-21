@@ -48,3 +48,16 @@ struct LoginButton: ViewModifier {
     
 }
 
+struct imageView: ViewModifier{
+    func body(content: Content) -> some View {
+        content
+            .scaledToFit()
+            .frame(width: 400)
+            .clipShape(Rectangle())
+                .overlay(Rectangle()
+                            .stroke(lineWidth: 5)
+                            .foregroundColor(.black))
+            .shadow(radius: 5)
+    }
+}
+
