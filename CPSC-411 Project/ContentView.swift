@@ -192,7 +192,7 @@ struct Coin: View {
 
 struct MysteryBoxView:View{
     @ObservedObject var box = MysteryBox()
-    @SceneStorage("newPrize") var newPrize: String = ""
+    @AppStorage("newPrize") var newPrize: String = ""
     @State var message: String = ""
     var body: some View {
         //@State var box = MysteryBox()
@@ -200,7 +200,7 @@ struct MysteryBoxView:View{
             Text("What's in the box?!")
                 .font(.title).padding()
         }
-        Image("Box")
+        Image("Box").modifier(imageView())
         HStack{
             Button("Open Box", action:{
                 //Text

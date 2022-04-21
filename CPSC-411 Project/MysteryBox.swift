@@ -5,6 +5,7 @@
 //  Created by Tran, Nathan on 3/9/22.
 //
 import Foundation
+import SwiftUI
 
 //import UIKit
 class MysteryBox: ObservableObject{//:UIViewController{
@@ -17,6 +18,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
         "Here's a quarter",
         "$10 gift card for Starbucks",
     ]
+    
     
     
     
