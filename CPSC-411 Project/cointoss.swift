@@ -35,8 +35,8 @@ class Coin: ObservableObject {
 }
 
 class Texting: ObservableObject{
-    @Published var text: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
-    @Published var text2: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
+    @AppStorage("text") var text: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
+    @AppStorage("text2") var text2: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
     @Published var inputText: String = ""
     @Published var inputText2: String = ""
 }
