@@ -205,7 +205,7 @@ struct Coining: View {
 
 struct MysteryBoxView:View{
     @ObservedObject var box = MysteryBox()
-    @AppStorage("newPrize") var newPrize: String = ""
+    @SceneStorage("newPrize") var newPrize: String = ""
     @State var message: String = ""
     var body: some View {
         //@State var box = MysteryBox()
@@ -221,15 +221,18 @@ struct MysteryBoxView:View{
             }).modifier(ButtonDesign())
         
             Button("Check Box", action:{
-                //message = "Test"
-                    //Text(box.prizeList())
+                message = box.prizeList()
+                //Text("Test")
+                
                     //.padding()
             }).modifier(ButtonDesign())
-            
-            
-            
+            //Text(box.prizeList())
         }
-        Text(box.prizeList())
+        VStack
+        {
+            Text(message)
+            
+        }    
         Spacer()
         TextField("Enter a restaurant or a store", text: $newPrize)
         
