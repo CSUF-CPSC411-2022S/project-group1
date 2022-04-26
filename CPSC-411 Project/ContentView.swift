@@ -214,6 +214,9 @@ struct MysteryBoxView:View{
         Button(action:{
             
             box.addPrize(newPrize)
+            /*if(box.prizes.count == 10){
+                print("The box is full")
+            }*/
             
         }, label:{
             Text("Add coupon").padding()
