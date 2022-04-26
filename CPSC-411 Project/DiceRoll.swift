@@ -18,6 +18,9 @@ class DiceRollManager: ObservableObject {
         } 
     }
     
+    func roll() -> Int {
+        return Int.random(in: 1...6)
+    }
     
     
     init () {
