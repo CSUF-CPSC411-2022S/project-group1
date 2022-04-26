@@ -44,12 +44,22 @@ class MysteryBox: ObservableObject{//:UIViewController{
        }*/
     func addPrize(_ newItem: String){
         let item: String
-        if(prizes.count >= 0)
+        let num = Int.random(in: 1...3)
+        if(prizes.count >= 0 && num == 1)
         {
             item = "$5 gift card for " + newItem
             prizes.append(item)
         }
-        
+        else if(prizes.count >= 0 && num == 2)
+        {
+            item = "$10 gift card for " + newItem
+            prizes.append(item)
+        }
+        else if(prizes.count >= 0 && num == 3)
+        {
+            item = "You get nothing for " + newItem
+            prizes.append(item)
+        }
         
     }
     func prizeList()-> String{

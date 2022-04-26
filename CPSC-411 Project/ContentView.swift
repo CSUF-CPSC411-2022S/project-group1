@@ -237,15 +237,17 @@ struct MysteryBoxView:View{
         TextField("Enter a restaurant or a store", text: $newPrize)
         
         Button(action:{
-            
             box.addPrize(newPrize)
-            /*if(box.prizes.count == 10){
-                print("The box is full")
-            }*/
-            
         }, label:{
             Text("Add coupon").padding()
         })
+        VStack{
+            if(box.prizes.count >= 10)
+            {
+                Text("The box is full")
+            }
+            
+        }
         Spacer()
         
     }
