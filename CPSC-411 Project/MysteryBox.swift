@@ -19,7 +19,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
         "$10 gift card for Starbucks",
     ]
     //test
-    /*func randomPrize()->String{
+    func randomPrize()->String{
         let num = Int.random(in: 1...prizes.count)
         let index = num - 1
         let temp = prizes[index]
@@ -29,8 +29,8 @@ class MysteryBox: ObservableObject{//:UIViewController{
        }
         prizes.remove(at: index)
         return temp
-    }*/
-    func randomPrize(){
+    }
+    /*func randomPrize(){
            
            let num: Int = Int.random(in: 1...prizes.count)
            let index = num - 1
@@ -41,7 +41,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
               print("You have received every single prize")
           }
           
-       }
+       }*/
     func addPrize(_ newItem: String){
         let item: String
         if(prizes.count >= 0)
@@ -56,11 +56,6 @@ class MysteryBox: ObservableObject{//:UIViewController{
         return "There are " + "\(prizes.count)" + " prizes in this box"
         
     }
-    /*func prizeList(){
-        print ("There are " + "\(prizes.count)" + " prizes in this box")
-        
-    }*/
-
     init (){
         
     }

@@ -217,7 +217,7 @@ struct MysteryBoxView:View{
         HStack{
             Button("Open Box", action:{
                 //Text
-                box.randomPrize()
+                message = box.randomPrize()
             }).modifier(ButtonDesign())
         
             Button("Check Box", action:{
