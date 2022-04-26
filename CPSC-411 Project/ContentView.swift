@@ -146,7 +146,7 @@ var body: some View{
                        .background(Color.white)
                        .cornerRadius(10)
     Image("86")
-    toss(test: Coin())
+    toss(texting: Texting(), test: Coin())
     }
 }
 
@@ -156,8 +156,8 @@ struct toss: View{
     var body: some View{
         VStack{
             VStack{
-                Text(" \(texting.text) Heads: \(test.headsCounting)")
-                Text(" \(texting.text2) Tails: \(test.tailsCounting)")
+                Text(" \(texting.text) (Heads): \(test.headsCounting)")
+                Text(" \(texting.text2) (Tails): \(test.tailsCounting)")
             }
             Spacer()
             Coining(Flipping: $test.flipping,Heads:$test.heads)
