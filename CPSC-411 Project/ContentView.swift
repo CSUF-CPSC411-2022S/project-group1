@@ -22,7 +22,7 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
-                        NavigationLink(destination: toss(test: Coin())) {
+                        NavigationLink(destination: toss(texting: Texting(), test: Coin())) {
 
                                                     NavigationLink(destination: WelcomeScreen()) {
 
@@ -73,6 +73,7 @@ struct LoginView: View {
 
 struct DicerollView: View {
     @SceneStorage("Foodplace") var Foodplace: String = ""
+    @State var num: Int = 1
     @StateObject var Manager = DiceRollManager()
     var body: some View {
         NavigationView {
@@ -80,13 +81,40 @@ struct DicerollView: View {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
+                    Image("Dice \(num)").Dice()
+                    Spacer()
                     TextField("Enter food Option", text: $Foodplace)
                     Button(action: {
                         Manager.AddOption(Foodplace)
                     }, label: {
                         Text("add food place").padding()
                     })
+                    Button(action: {
+                        num = Manager.roll()
+                    }, label: {
+                        Text("Roll Dice").padding()
+                    })
+
                     Spacer()
+                    NavigationLink(destination: OptionView()) {
+                        Text("List").modifier(ButtonDesign())
+                    }
+                }
+            }
+            .navigationBarHidden(true)
+            
+        }.environmentObject(Manager)
+
+    }
+}
+
+
+struct OptionView: View {
+    @EnvironmentObject var Manager: DiceRollManager
+    var body: some View {
+        NavigationView {
+            ZStack {
+                VStack {
                     List {
                         ForEach(Manager.FoodList, id: \.self) { option in
                             Text(option)
@@ -97,26 +125,7 @@ struct DicerollView: View {
             .navigationBarHidden(true)
             
         }
-
     }
-    
-}
-
-
-struct EmptyView: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                VStack {
-                    Text("Welcome").font(.title).padding()
-                    Spacer()
-                }
-            }
-            .navigationBarHidden(true)
-            
-        }
-    }
-    
 }
 
 
@@ -142,18 +151,31 @@ var body: some View{
 }
 
 struct toss: View{
-    
-    @ObservedObject var test: Coin
+    @ObservedObject var texting: Texting //class texting
+    @ObservedObject var test: Coin //class coin
     var body: some View{
         VStack{
             VStack{
-                Text("Heads: \(test.headsCounting)")
-                Text("Tails: \(test.tailsCounting)")
+                Text(" \(texting.text) Heads: \(test.headsCounting)")
+                Text(" \(texting.text2) Tails: \(test.tailsCounting)")
             }
             Spacer()
             Coining(Flipping: $test.flipping,Heads:$test.heads)
                 .rotation3DEffect(Angle(degrees: Double(test.intensity)), axis: (x:CGFloat(0),y:CGFloat(20),z:CGFloat(0)))
             Spacer()
+            TextField("User Input", text: $texting.inputText)
+            TextField("User Input", text: $texting.inputText2)
+            Spacer()
+            Button("Save Data"){
+                UserDefaults.standard.set(texting.inputText, forKey: "TEXT_KEY")
+                UserDefaults.standard.set(texting.inputText2, forKey: "TEXT_KEY")
+                texting.text = texting.inputText
+                texting.text2 = texting.inputText2
+                print("saved value: \(texting.inputText)")
+                print("saved value2: \(texting.inputText2)")
+            }
+            Spacer()
+                
             Button("Take your Chances"){
                 test.FlipCoin()
             }
