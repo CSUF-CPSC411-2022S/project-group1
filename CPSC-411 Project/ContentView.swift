@@ -73,6 +73,7 @@ struct LoginView: View {
 
 struct DicerollView: View {
     @SceneStorage("Foodplace") var Foodplace: String = ""
+    @State var num: Int = 1
     @StateObject var Manager = DiceRollManager()
     var body: some View {
         NavigationView {
@@ -80,7 +81,7 @@ struct DicerollView: View {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
-                    Image("Dice 1").Dice()
+                    Image("Dice \(num)").Dice()
                     Spacer()
                     TextField("Enter food Option", text: $Foodplace)
                     Button(action: {
@@ -88,6 +89,12 @@ struct DicerollView: View {
                     }, label: {
                         Text("add food place").padding()
                     })
+                    Button(action: {
+                        num = Manager.roll()
+                    }, label: {
+                        Text("Roll Dice").padding()
+                    })
+
                     Spacer()
                     NavigationLink(destination: OptionView()) {
                         Text("List").modifier(ButtonDesign())
