@@ -61,3 +61,12 @@ struct imageView: ViewModifier{
     }
 }
 
+extension Image {
+    func Dice() -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .frame(width: 250, height: 250)
+    }
+}
+

@@ -80,7 +80,7 @@ struct DicerollView: View {
                 VStack {
                     Text("Welcome to Dice Roll").font(.title).padding()
                     Spacer()
-                    Image("Dice 1").padding()
+                    Image("Dice 1").Dice()
                     Spacer()
                     TextField("Enter food Option", text: $Foodplace)
                     Button(action: {
