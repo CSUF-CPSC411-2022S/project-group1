@@ -7,14 +7,17 @@
 
 import Foundation
 
+struct Option: Identifiable {
+    var id = UUID()
+    var name: String
+}
 
 class DiceRollManager: ObservableObject {
     private var maxsize: Int = 5
-    private(set) var FoodList: [String] = []
-    
+    @Published var ChoiceList: [Option] = []
     func AddOption(_ Foodchoice: String) {
-        if FoodList.capacity != maxsize {
-            FoodList.append(Foodchoice)
+        if ChoiceList.capacity != maxsize {
+            ChoiceList.append(Option(name: Foodchoice))
         } 
     }
     

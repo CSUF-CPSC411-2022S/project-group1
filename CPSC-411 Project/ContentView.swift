@@ -83,20 +83,22 @@ struct DicerollView: View {
                     Spacer()
                     Image("Dice \(num)").Dice()
                     Spacer()
-                    TextField("Enter food Option", text: $Foodplace)
-                    Button(action: {
-                        Manager.AddOption(Foodplace)
-                    }, label: {
-                        Text("add food place").padding()
-                    })
-                    Button(action: {
-                        num = Manager.roll()
-                    }, label: {
-                        Text("Roll Dice").padding()
-                    })
-
+                    TextField("Enter Option", text: $Foodplace)
+                    HStack {
+                        Button(action: {
+                            Manager.AddOption(Foodplace)
+                        }, label: {
+                            Text("add Option").padding()
+                        })
+                        Button(action: {
+                            num = Manager.roll()
+                        }, label: {
+                            Text("Roll Dice").padding()
+                        })
+                    }
                     Spacer()
-                    NavigationLink(destination: OptionView()) {
+                    NavigationLink(destination: OptionView()
+                        .navigationBarHidden(true)) {
                         Text("List").modifier(ButtonDesign())
                     }
                 }
@@ -113,17 +115,24 @@ struct OptionView: View {
     @EnvironmentObject var Manager: DiceRollManager
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    List {
-                        ForEach(Manager.FoodList, id: \.self) { option in
-                            Text(option)
-                        }
+            VStack {
+                List {
+                    ForEach(Manager.ChoiceList) {
+                        option in
+                        Text(option.name)
                     }
+                    .onMove {
+                        offset, index in
+                        Manager.ChoiceList.move(fromOffsets: offset, toOffset: index)
+                    }
+                    .onDelete {
+                        offset in
+                        Manager.ChoiceList.remove(atOffsets: offset)
+                    }
+                    
                 }
+                .navigationBarItems(trailing: EditButton())
             }
-            .navigationBarHidden(true)
-            
         }
     }
 }
