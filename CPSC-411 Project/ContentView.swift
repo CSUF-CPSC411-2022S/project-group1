@@ -23,12 +23,12 @@ struct ContentView: View {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
                         NavigationLink(destination: toss(texting: Texting(), test: Coin())) {
-
-                                                    NavigationLink(destination: WelcomeScreen()) {
-
-                                                    Text("Coin Flip").modifier(ButtonDesign())
-                                                                                              }
-                                                }
+                            
+                            NavigationLink(destination: WelcomeScreen()) {
+                                
+                                Text("Coin Flip").modifier(ButtonDesign())
+                            }
+                        }
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
                         }
@@ -62,12 +62,12 @@ struct LoginView: View {
                     Button(action: {}, label: {
                         Text("Sign In").modifier(LoginButton()).padding()
                     })
-                        
+                    
                 }
             }
             .navigationBarHidden(true)
         }
-
+        
     }
 }
 
@@ -75,6 +75,7 @@ struct DicerollView: View {
     @SceneStorage("Foodplace") var Foodplace: String = ""
     @State var num: Int = 1
     @StateObject var Manager = DiceRollManager()
+    @State var showAlert: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -85,28 +86,30 @@ struct DicerollView: View {
                     Spacer()
                     TextField("Enter Option", text: $Foodplace)
                     HStack {
-                        Button(action: {
-                            Manager.AddOption(Foodplace)
-                        }, label: {
-                            Text("add Option").padding()
-                        })
-                        Button(action: {
+                        Button("Add Option") {
+                            if Manager.ChoiceList.count == 6 {
+                                showAlert.toggle()
+                            } else {
+                                Manager.AddOption(Foodplace)
+                            }
+                        }
+                        .alert(isPresented: $showAlert, content: {
+                            Alert(title: Text("List is full"))
+                        }).padding()
+                        Button("Roll Dice") {
                             num = Manager.roll()
-                        }, label: {
-                            Text("Roll Dice").padding()
-                        })
+                        }.padding()
                     }
                     Spacer()
-                    NavigationLink(destination: OptionView()
-                        .navigationBarHidden(true)) {
-                        Text("List").modifier(ButtonDesign())
-                    }
+                    NavigationLink(destination: OptionView()) {
+                            Text("List").modifier(ButtonDesign())
+                        }
                 }
             }
             .navigationBarHidden(true)
             
         }.environmentObject(Manager)
-
+        
     }
 }
 
@@ -146,16 +149,16 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct WelcomeScreen: View {
-var body: some View{
-    
+    var body: some View{
+        
         Text("Welcome to our game")
             .font(.custom("Times New Roman", size: 40))
-                       .foregroundColor(Color.black)
-                       .padding(.bottom,30)
-                       .background(Color.white)
-                       .cornerRadius(10)
-    Image("86")
-    toss(texting: Texting(), test: Coin())
+            .foregroundColor(Color.black)
+            .padding(.bottom,30)
+            .background(Color.white)
+            .cornerRadius(10)
+        Image("86")
+        toss(texting: Texting(), test: Coin())
     }
 }
 
@@ -184,7 +187,7 @@ struct toss: View{
                 print("saved value2: \(texting.inputText2)")
             }
             Spacer()
-                
+            
             Button("Take your Chances"){
                 test.FlipCoin()
             }
@@ -197,18 +200,18 @@ struct Coining: View {
     var body: some View{
         ZStack{
             if Heads {
-            Image("heads")
-                .clipShape(Circle())
-                .frame(width:150, height:150)
+                Image("heads")
+                    .clipShape(Circle())
+                    .frame(width:150, height:150)
             }
-                else {
-            Image("tails")
-                .clipShape(Circle())
-                .frame(width: 150 , height: 150)
-                }
+            else {
+                Image("tails")
+                    .clipShape(Circle())
+                    .frame(width: 150 , height: 150)
+            }
         }
     }
-     
+    
     
 }
 
@@ -228,11 +231,11 @@ struct MysteryBoxView:View{
                 //Text
                 box.randomPrize()
             }).modifier(ButtonDesign())
-        
+            
             Button("Check Box", action:{
                 //message = "Test"
-                    //Text(box.prizeList())
-                    //.padding()
+                //Text(box.prizeList())
+                //.padding()
             }).modifier(ButtonDesign())
             
             
@@ -246,8 +249,8 @@ struct MysteryBoxView:View{
             
             box.addPrize(newPrize)
             /*if(box.prizes.count == 10){
-                print("The box is full")
-            }*/
+             print("The box is full")
+             }*/
             
         }, label:{
             Text("Add coupon").padding()
