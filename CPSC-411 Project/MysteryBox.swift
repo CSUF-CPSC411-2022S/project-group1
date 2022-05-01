@@ -49,10 +49,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
             item = "$5 gift card for " + newItem
             prizes.append(item)
         }
-        /*if(prizes.count == 10)
-        {
-            return "The box is full"
-        }*/
+        
         
     }
     func prizeList()-> String{

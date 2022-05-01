@@ -22,6 +22,7 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
+ Dice_class
                         NavigationLink(destination: toss(test: Coin())) {
                             
                             NavigationLink(destination: WelcomeScreen()) {
@@ -29,6 +30,15 @@ struct ContentView: View {
                                 Text("Coin Flip").modifier(ButtonDesign())
                             }
                         }
+
+                        NavigationLink(destination: toss(texting: Texting(), test: Coin())) {
+
+                                                    NavigationLink(destination: WelcomeScreen()) {
+
+                                                    Text("Coin Flip").modifier(ButtonDesign())
+                                                                                              }
+                                                }
+ main
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
                         }
@@ -165,23 +175,36 @@ var body: some View{
                        .background(Color.white)
                        .cornerRadius(10)
     Image("86")
-    toss(test: Coin())
+    toss(texting: Texting(), test: Coin())
     }
 }
 
 struct toss: View{
-    
-    @ObservedObject var test: Coin
+    @ObservedObject var texting: Texting //class texting
+    @ObservedObject var test: Coin //class coin
     var body: some View{
         VStack{
             VStack{
-                Text("Heads: \(test.headsCounting)")
-                Text("Tails: \(test.tailsCounting)")
+                Text(" \(texting.text) (Heads): \(test.headsCounting)")
+                Text(" \(texting.text2) (Tails): \(test.tailsCounting)")
             }
             Spacer()
             Coining(Flipping: $test.flipping,Heads:$test.heads)
                 .rotation3DEffect(Angle(degrees: Double(test.intensity)), axis: (x:CGFloat(0),y:CGFloat(20),z:CGFloat(0)))
             Spacer()
+            TextField("User Input", text: $texting.inputText)
+            TextField("User Input", text: $texting.inputText2)
+            Spacer()
+            Button("Save Data"){
+                UserDefaults.standard.set(texting.inputText, forKey: "TEXT_KEY")
+                UserDefaults.standard.set(texting.inputText2, forKey: "TEXT_KEY")
+                texting.text = texting.inputText
+                texting.text2 = texting.inputText2
+                print("saved value: \(texting.inputText)")
+                print("saved value2: \(texting.inputText2)")
+            }
+            Spacer()
+                
             Button("Take your Chances"){
                 test.FlipCoin()
             }
@@ -242,6 +265,9 @@ struct MysteryBoxView:View{
         Button(action:{
             
             box.addPrize(newPrize)
+            /*if(box.prizes.count == 10){
+                print("The box is full")
+            }*/
             
         }, label:{
             Text("Add coupon").padding()
