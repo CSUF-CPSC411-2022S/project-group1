@@ -22,15 +22,6 @@ struct ContentView: View {
                         NavigationLink(destination: DicerollView()) {
                             Text("Dice Roll").modifier(ButtonDesign())
                         }
- Dice_class
-                        NavigationLink(destination: toss(test: Coin())) {
-                            
-                            NavigationLink(destination: WelcomeScreen()) {
-                                
-                                Text("Coin Flip").modifier(ButtonDesign())
-                            }
-                        }
-
                         NavigationLink(destination: toss(texting: Texting(), test: Coin())) {
 
                                                     NavigationLink(destination: WelcomeScreen()) {
@@ -38,7 +29,6 @@ struct ContentView: View {
                                                     Text("Coin Flip").modifier(ButtonDesign())
                                                                                               }
                                                 }
- main
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
                         }
@@ -85,7 +75,6 @@ struct DicerollView: View {
     @SceneStorage("Foodplace") var Foodplace: String = ""
     @State var num: Int = 1
     @StateObject var Manager = DiceRollManager()
-    @State var showAlert: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -96,26 +85,20 @@ struct DicerollView: View {
                     Spacer()
                     TextField("Enter Option", text: $Foodplace)
                     HStack {
-                        
-                        Button("add Option") {
-                            if Manager.ChoiceList.count == 6 {
-                                showAlert.toggle()
-                            } else {
-                                Manager.AddOption(Foodplace)
-                            }
-
-                        }.padding()
-                        .alert(isPresented: $showAlert, content: {
-                            Alert(title: Text("List is full"))
+                        Button(action: {
+                            Manager.AddOption(Foodplace)
+                        }, label: {
+                            Text("add Option").padding()
                         })
-                        
-                        Button("Roll Dice") {
+                        Button(action: {
                             num = Manager.roll()
-                        }.padding()
+                        }, label: {
+                            Text("Roll Dice").padding()
+                        })
                     }
-
                     Spacer()
-                    NavigationLink(destination: OptionView()) {
+                    NavigationLink(destination: OptionView()
+                        .navigationBarHidden(true)) {
                         Text("List").modifier(ButtonDesign())
                     }
                 }
@@ -123,7 +106,7 @@ struct DicerollView: View {
             .navigationBarHidden(true)
             
         }.environmentObject(Manager)
-        
+
     }
 }
 
@@ -131,8 +114,8 @@ struct DicerollView: View {
 struct OptionView: View {
     @EnvironmentObject var Manager: DiceRollManager
     var body: some View {
-        VStack {
-            NavigationView {
+        NavigationView {
+            VStack {
                 List {
                     ForEach(Manager.ChoiceList) {
                         option in
@@ -147,13 +130,10 @@ struct OptionView: View {
                         Manager.ChoiceList.remove(atOffsets: offset)
                     }
                     
-                    
                 }
-                
                 .navigationBarItems(trailing: EditButton())
             }
         }
-        
     }
 }
 

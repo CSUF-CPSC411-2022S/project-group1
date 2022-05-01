@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct Option: Identifiable {
     var id = UUID()
@@ -14,22 +13,17 @@ struct Option: Identifiable {
 }
 
 class DiceRollManager: ObservableObject {
-    var maxsize: Int = 6
-    var max: Int = 0
+    private var maxsize: Int = 5
     @Published var ChoiceList: [Option] = []
-    
     func AddOption(_ Foodchoice: String) {
-        if ChoiceList.count <= max {
+        if ChoiceList.capacity != maxsize {
             ChoiceList.append(Option(name: Foodchoice))
-            max = maxsize - 1
-        }
+        } 
     }
     
     func roll() -> Int {
         return Int.random(in: 1...6)
     }
-    
-    
     
     
     init () {
