@@ -49,7 +49,7 @@ class CoinToss: XCTestCase{
     func testHead(){
                 let coin = Coin()
         coin.HeadsTails()
-        XCTAssertFalse(coin.heads,"its not heads")
+        XCTAssertTrue(coin.heads,"its not heads")
     }
     
 }
