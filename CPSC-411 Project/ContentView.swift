@@ -24,10 +24,11 @@ struct ContentView: View {
                         }
                         NavigationLink(destination: toss(texting: Texting(), test: Coin())) {
 
-                            NavigationLink(destination: WelcomeScreen()) {
+                           
 
                             Text("Coin Flip").modifier(ButtonDesign())
-                                                                      }
+                                
+                                                                      
                         }
                         NavigationLink(destination: MysteryBoxView()) {
                             Text("Mystery Box").modifier(ButtonDesign())
@@ -126,7 +127,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
+/*
 struct WelcomeScreen: View {
 var body: some View{
     
@@ -136,10 +137,10 @@ var body: some View{
                        .padding(.bottom,30)
                        .background(Color.white)
                        .cornerRadius(10)
-    Image("86")
+    
     toss(texting: Texting(), test: Coin())
     }
-}
+}*/
 
 struct toss: View{
     @ObservedObject var texting: Texting //class texting
@@ -155,7 +156,9 @@ struct toss: View{
                 .rotation3DEffect(Angle(degrees: Double(test.intensity)), axis: (x:CGFloat(0),y:CGFloat(20),z:CGFloat(0)))
             Spacer()
             TextField("User Input", text: $texting.inputText)
+                .font(Font.headline.weight(.black))
             TextField("User Input", text: $texting.inputText2)
+                .font(Font.headline.weight(.black))
             Spacer()
             Button("Save Data"){
                 UserDefaults.standard.set(texting.inputText, forKey: "TEXT_KEY")
@@ -170,8 +173,11 @@ struct toss: View{
             Button("Take your Chances"){
                 test.FlipCoin()
             }
+            
         }
+        .background(Image("86"))
     }
+    
 }
 struct Coining: View {
     @Binding var Flipping:Bool
