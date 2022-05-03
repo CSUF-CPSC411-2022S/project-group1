@@ -14,7 +14,7 @@ class DiceRollMangerTest: XCTestCase {
         let manager = DiceRollManager()
         manager.AddOption("In n Out")
         
-        XCTAssertFalse(manager.FoodList.isEmpty)
-        
+        XCTAssertTrue(manager.ChoiceList[0].name == "In n Out")
     }
+    
 }
