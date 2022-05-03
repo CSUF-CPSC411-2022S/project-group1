@@ -76,6 +76,7 @@ struct DicerollView: View {
     @State var num: Int = 1
     @StateObject var Manager = DiceRollManager()
     @State var showAlert: Bool = false
+    @State var showAlert1: Bool = false
     var body: some View {
         NavigationView {
             ZStack {
@@ -98,7 +99,12 @@ struct DicerollView: View {
                         }).padding()
                         Button("Roll Dice") {
                             num = Manager.roll()
-                        }.padding()
+                            showAlert1.toggle()
+                        }
+                        .alert(isPresented: $showAlert1, content: {
+                            Alert(title: Text(Manager.display()))
+                        })
+                        .padding()
                     }
                     Spacer()
                     NavigationLink(destination: OptionView()) {
