@@ -18,7 +18,6 @@ class MysteryBox: ObservableObject{//:UIViewController{
         "Here's a quarter",
         "$10 gift card for Starbucks",
     ]
-    let userDefaults = UserDefaults.standard
     //test
     func randomPrize()->String{
         let num = Int.random(in: 0...(prizes.count - 1))
