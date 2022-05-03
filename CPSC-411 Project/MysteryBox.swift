@@ -18,12 +18,12 @@ class MysteryBox: ObservableObject{//:UIViewController{
         "Here's a quarter",
         "$10 gift card for Starbucks",
     ]
+    let userDefaults = UserDefaults.standard
     //test
     func randomPrize()->String{
-        let num = Int.random(in: 1...prizes.count)
-        let index = num - 1
+        let num = Int.random(in: 0...(prizes.count - 1))
+        let index = num
         let temp = prizes[index]
-        //prizes.remove(at: index)
         if(prizes.count == 0){
            return "You have received every single prize"
        }
@@ -40,8 +40,8 @@ class MysteryBox: ObservableObject{//:UIViewController{
            if(prizes.count == 0){
               print("You have received every single prize")
           }
-          
-       }*/
+    }*/
+    
     func addPrize(_ newItem: String){
         let item: String
         let num = Int.random(in: 1...3)
@@ -66,8 +66,12 @@ class MysteryBox: ObservableObject{//:UIViewController{
         return "There are " + "\(prizes.count)" + " prizes in this box"
         
     }
+    
     init (){
         
     }
 
 }
+
+    
+

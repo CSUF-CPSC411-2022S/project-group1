@@ -207,8 +207,8 @@ struct MysteryBoxView:View{
     @ObservedObject var box = MysteryBox()
     @SceneStorage("newPrize") var newPrize: String = ""
     @State var message: String = ""
+    //var itemsArray = [String]()
     var body: some View {
-        //@State var box = MysteryBox()
         VStack{
             Text("What's in the box?!")
                 .font(.title).padding()
