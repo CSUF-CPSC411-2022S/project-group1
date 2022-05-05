@@ -17,4 +17,11 @@ class DiceRollMangerTest: XCTestCase {
         XCTAssertTrue(manager.ChoiceList[0].name == "In n Out")
     }
     
+    func testdiceroll() {
+        let manager = DiceRollManager()
+        let num = manager.roll()
+        
+        XCTAssertTrue ((1...6).contains(num))
+    }
+    
 }
