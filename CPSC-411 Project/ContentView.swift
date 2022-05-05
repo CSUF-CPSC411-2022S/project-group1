@@ -8,7 +8,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
+        LoginView()
+       /*
         NavigationView {
             ZStack {
                 Color.red.ignoresSafeArea()
@@ -41,37 +42,100 @@ struct ContentView: View {
                 }
             }.navigationBarHidden(true)
         }
+        */
     }
 }
-
-struct LoginView: View {
-    @State private var Usrname = ""
-    @State private var Password = ""
-    
+struct naviView: View { // main view for all the games
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.mint.ignoresSafeArea()
-                Circle()
-                    .scale(1.5)
-                    .foregroundColor(.white)
-                VStack {
-                    Text("Login").font(.largeTitle).bold().padding()
-                    TextField("UserName", text: $Usrname).modifier(CredentialsBox())
-                    SecureField("Password", text: $Password).modifier(CredentialsBox())
-                    
-                    Button(action: {}, label: {
-                        Text("Sign In").modifier(LoginButton()).padding()
-                    })
-                        
-                }
-            }
-            .navigationBarHidden(true)
-        }
+    NavigationView {
+        ZStack {
+            Color.red.ignoresSafeArea()
+            Circle()
+                .scale(1.5)
+                .foregroundColor(.white)
+            VStack {
+                Text("Welcome to Decision Maker").font(.title).padding()
+                Spacer()
+                HStack (alignment: .center) {
+                    NavigationLink(destination: DicerollView()) {
+                        Text("Dice Roll").modifier(ButtonDesign())
+                    }
+                    NavigationLink(destination: toss(texting: Texting(), test: Coin())) {
 
+                                               
+
+                                                Text("Coin Flip").modifier(ButtonDesign())
+                                                                                          
+                                            }
+                    NavigationLink(destination: MysteryBoxView()) {
+                        Text("Mystery Box").modifier(ButtonDesign())
+                    }
+                }
+                Spacer()
+                
+                
+                
+            }
+        }.navigationBarHidden(true)
     }
 }
+}
+struct LoginView: View {
+    @State var Usrname = ""
+       @State var Password = ""
+       @AppStorage("wrongpassword")  var WrongPassword = 0
+       @AppStorage("wrongusername") var WrongUsername = 0
+       @AppStorage("showingloginscreen") var showingLoginScreen = false
+       var body: some View {
+           NavigationView {
+               ZStack {
+                   Color.mint.ignoresSafeArea()
+                   Circle()
+                       .scale(1.5)
+                       .foregroundColor(.white)
+                   VStack {
+                       Text("Login").font(.largeTitle).bold().padding()
+                       TextField("UserName", text: $Usrname).modifier(CredentialsBox())
+                           
+                       SecureField("Password", text: $Password).modifier(CredentialsBox())
+                           
+                       
+                       Button("Login"){
+                           authenticateUser(username: Usrname, password: Password)
+                           //authenticate user
+                       }
+                       .frame(maxWidth: .infinity, alignment: .center)
+                       .padding(.top,10)
+                       NavigationLink(destination: naviView(), isActive: $showingLoginScreen){
+                           
+                       
+                       }
+                     
+                       
+                       
+                   }
+               }
+               .navigationBarHidden(true)
+           }
 
+       }
+    func authenticateUser(username: String, password: String){
+           if username.lowercased() == "mario123"{
+               WrongUsername = 0
+               if password.lowercased() == "abc123"{
+                   WrongPassword = 0
+                   showingLoginScreen = true
+               
+               }
+               else{
+                   WrongPassword = 2
+               }
+           }
+           else{
+               WrongUsername = 2
+           }//use my data i appended earlier similar to cointoss
+       }
+   }
 struct DicerollView: View {
     @SceneStorage("Foodplace") var Foodplace: String = ""
     @StateObject var Manager = DiceRollManager()
