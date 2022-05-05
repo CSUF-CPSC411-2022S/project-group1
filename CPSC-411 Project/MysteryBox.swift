@@ -52,6 +52,7 @@ class MysteryBox: ObservableObject{//:UIViewController{
         {
             return "The Box is empty, add something to it"
         }
+        return "The Box is not full"
     }
     func addPrize(_ newItem: String){
         let item: String
