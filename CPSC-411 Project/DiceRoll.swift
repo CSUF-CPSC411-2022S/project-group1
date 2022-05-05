@@ -16,15 +16,15 @@ struct Option: Identifiable {
 class DiceRollManager: ObservableObject {
     private var maxsize: Int = 5
     @Published var ChoiceList: [Option] = []
-
+    
     func AddOption(_ Foodchoice: String) {
         if ChoiceList.capacity != maxsize {
             ChoiceList.append(Option(name: Foodchoice))
-        } 
+        }
     }
     
     func roll() -> Int {
-
+        
         if (ChoiceList.count == 1 || ChoiceList.isEmpty) {
             return 1
         } else if (ChoiceList.count == 2) {
@@ -35,24 +35,13 @@ class DiceRollManager: ObservableObject {
             return Int.random(in: 1...4)
         } else if (ChoiceList.count == 5) {
             return Int.random(in: 1...5)
-
-        }
-        return Int.random(in: 1...6)
-
         } else {
             return Int.random(in: 1...6)
         }
-
     }
     
     func display() -> String {
         
-        if (ChoiceList.isEmpty) {
-            return "List is empty"
-        }
-        
-        return ChoiceList[Int.random(in: 0...5)].name
-
         var pick: String = ""
         
         if (ChoiceList.isEmpty) {
@@ -80,7 +69,6 @@ class DiceRollManager: ObservableObject {
         
         return pick
         
-
     }
     
 
