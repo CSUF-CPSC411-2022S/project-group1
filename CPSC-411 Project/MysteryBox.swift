@@ -47,13 +47,13 @@ class MysteryBox: ObservableObject{//:UIViewController{
               print("You have received every single prize")
           }
     }*/
-    func display () -> String{
+    /*func display () -> String{
         if(prizes.isEmpty)
         {
             return "The Box is empty, add something to it"
         }
         return "The Box is not full"
-    }
+    }*/
     func addPrize(_ newItem: String){
         let item: String
         let num = Int.random(in: 1...3)
