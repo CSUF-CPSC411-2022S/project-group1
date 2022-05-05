@@ -294,10 +294,10 @@ struct Coining: View {
 
 struct MysteryBoxView:View{
     @ObservedObject var box = MysteryBox()
-    @SceneStorage("newPrize") var newPrize: String = ""
+    @AppStorage("newPrize") var newPrize: String = ""
     @State var message: String = ""
-    //var itemsArray = [String]()
     var body: some View {
+        //@State var box = MysteryBox()
         VStack{
             Text("What's in the box?!")
                 .font(.title).padding()
@@ -306,50 +306,32 @@ struct MysteryBoxView:View{
         HStack{
             Button("Open Box", action:{
                 //Text
-                message = box.randomPrize()
+                box.randomPrize()
             }).modifier(ButtonDesign())
             
             Button("Check Box", action:{
-
-                message = box.prizeList()
-                //Text("Test")
-                
-                    //.padding()
-
                 //message = "Test"
                 //Text(box.prizeList())
                 //.padding()
-
             }).modifier(ButtonDesign())
-            //Text(box.prizeList())
-        }
-        VStack
-        {
-            Text(message)
             
-        }    
+            
+            
+        }
+        Text(box.prizeList())
         Spacer()
         TextField("Enter a restaurant or a store", text: $newPrize)
         
         Button(action:{
+            
             box.addPrize(newPrize)
-
-
             /*if(box.prizes.count == 10){
              print("The box is full")
              }*/
             
-
         }, label:{
             Text("Add coupon").padding()
         })
-        VStack{
-            if(box.prizes.count >= 10)
-            {
-                Text("The box is full")
-            }
-            
-        }
         Spacer()
         
     }
