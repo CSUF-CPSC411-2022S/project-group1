@@ -10,7 +10,6 @@ import SwiftUI
 //import UIKit
 class MysteryBox: ObservableObject{//:UIViewController{
     //start code here
-    //var message: String = ""
     @Published var prizes = [
         "A blank check?",
         "$5 Coupon to Target?",
@@ -20,14 +19,22 @@ class MysteryBox: ObservableObject{//:UIViewController{
     ]
     //test
     func randomPrize()->String{
-        let num = Int.random(in: 0...(prizes.count - 1))
-        let index = num
-        let temp = prizes[index]
+        //let num = Int.random(in: 0...(prizes.count - 1))
+        //let index = num
+        //let temp = prizes[index]
         if(prizes.count == 0){
            return "You have received every single prize"
        }
-        prizes.remove(at: index)
-        return temp
+       else{
+           let num = Int.random(in: 0...(prizes.count - 1))
+           let index = num
+           let temp = prizes[index]
+           prizes.remove(at: index)
+           return temp
+           
+       }
+        //prizes.remove(at: index)
+        //return temp
     }
     /*func randomPrize(){
            
@@ -40,7 +47,12 @@ class MysteryBox: ObservableObject{//:UIViewController{
               print("You have received every single prize")
           }
     }*/
-    
+    func display () -> String{
+        if(prizes.isEmpty)
+        {
+            return "The Box is empty, add something to it"
+        }
+    }
     func addPrize(_ newItem: String){
         let item: String
         let num = Int.random(in: 1...3)
