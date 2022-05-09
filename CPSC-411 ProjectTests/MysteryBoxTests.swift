@@ -19,7 +19,7 @@ class MysteryBoxTests: XCTestCase {
         let box2 = MysteryBox()
         box2.addPrize("Wendy")
         XCTAssertTrue(box2.prizes.count > 5)
-        //test to see if th prize got added, since 5 prizes are in the default box
+        //test to see if the prize got added, since 5 prizes are in the default box
     }
     
     func testRemovePrize(){
