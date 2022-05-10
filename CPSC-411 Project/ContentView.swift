@@ -105,9 +105,8 @@ struct LoginView: View {
                        }
                        .frame(maxWidth: .infinity, alignment: .center)
                        .padding(.top,10)
-                       NavigationLink(destination: naviView(), isActive: $showingLoginScreen){
+                       NavigationLink(destination: naviView().navigationBarBackButtonHidden(true), isActive: $showingLoginScreen){
                            
-                       
                        }
                      
                        

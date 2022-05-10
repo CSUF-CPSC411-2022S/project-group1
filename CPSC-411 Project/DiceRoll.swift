@@ -46,12 +46,11 @@ class DiceRollManager: ObservableObject {
         
         if (ChoiceList.isEmpty) {
             pick = "List is empty"
-        }
-        
-        if(roll() == 1) {
+        } else {
             pick = ChoiceList[0].name
         }
-        else if (roll() == 2) {
+        
+        if (roll() == 2) {
             pick = ChoiceList[1].name
         }
         else if (roll() == 3) {
