@@ -296,7 +296,7 @@ struct MysteryBoxView:View{
     @ObservedObject var box = MysteryBox()
     @SceneStorage("newPrize") var newPrize: String = ""
     @State var message: String = ""
-    @State var alert: Bool = false
+    @State var showAlert: Bool = false
     //var itemsArray = [String]()
     var body: some View {
         VStack{
@@ -308,6 +308,7 @@ struct MysteryBoxView:View{
             Button("Open Box", action:{
                 //Text
                 message = box.randomPrize()
+                   
             }).modifier(ButtonDesign())
             
             Button("Check Box", action:{
@@ -326,24 +327,11 @@ struct MysteryBoxView:View{
         TextField("Enter a restaurant or a store", text: $newPrize)
         
         Button(action:{
-            box.addPrize(newPrize)
-
-
-            /*if(box.prizes.count == 10){
-             print("The box is full")
-             }*/
-            
-
+                box.addPrize(newPrize)
+                
         }, label:{
             Text("Add coupon").padding()
         })
-        VStack{
-            if(box.prizes.count >= 10)
-            {
-                Text("The box is full")
-            }
-            
-        }
         Spacer()
         
     }

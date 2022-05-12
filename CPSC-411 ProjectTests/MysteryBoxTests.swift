@@ -39,4 +39,5 @@ class MysteryBoxTests: XCTestCase {
         //Test multiple calls of the addPrize and randomPrize function
         // adds 3 prizes and removes 2 ramdom prizes, there should be 6 prizes
     }
+   
 }
